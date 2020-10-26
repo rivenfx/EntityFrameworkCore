@@ -21,7 +21,7 @@ namespace Microsoft.EntityFrameworkCore
         /// <param name="connectionString"> The connection string of the database to connect to. </param>
         /// <param name="dbContextOptionsAction">An optional action to allow additional PostgreSQL specific configuration.</param>
         /// <returns> The options builder so that further configuration can be chained. </returns>
-        public static DbContextOptionsBuilder UseRivenFxPostgreSQL(
+        public static DbContextOptionsBuilder UseRivenPostgreSQL(
              [NotNull] this DbContextOptionsBuilder optionsBuilder,
              [NotNull] string connectionString,
              [CanBeNull] Action<NpgsqlDbContextOptionsBuilder> dbContextOptionsAction = null
@@ -33,7 +33,7 @@ namespace Microsoft.EntityFrameworkCore
                 {
                     dbContextOptionsAction?.Invoke(dbContextOptionsBuilder);
                 })
-                .UseRivenFxPostgreSqlGeneration();
+                .UseRivenPostgreSqlGeneration();
 
 
             return optionsBuilder;
@@ -50,7 +50,7 @@ namespace Microsoft.EntityFrameworkCore
         /// </param>
         /// <param name="dbContextOptionsAction">An optional action to allow additional PostgreSQL specific configuration.</param>
         /// <returns> The options builder so that further configuration can be chained. </returns>
-        public static DbContextOptionsBuilder UseRivenFxPostgreSQL([NotNull] this DbContextOptionsBuilder optionsBuilder,
+        public static DbContextOptionsBuilder UseRivenPostgreSQL([NotNull] this DbContextOptionsBuilder optionsBuilder,
             [NotNull] DbConnection connection,
             [CanBeNull] Action<NpgsqlDbContextOptionsBuilder> dbContextOptionsAction
             = null)
@@ -61,7 +61,7 @@ namespace Microsoft.EntityFrameworkCore
                  {
                      dbContextOptionsAction?.Invoke(dbContextOptionsBuilder);
                  })
-                 .UseRivenFxPostgreSqlGeneration();
+                 .UseRivenPostgreSqlGeneration();
             return optionsBuilder;
         }
 
@@ -71,7 +71,7 @@ namespace Microsoft.EntityFrameworkCore
         /// </summary>
         /// <param name="optionsBuilder"></param>
         /// <returns></returns>
-        public static DbContextOptionsBuilder UseRivenFxPostgreSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
+        public static DbContextOptionsBuilder UseRivenPostgreSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
             return optionsBuilder
                      .ReplaceService<ISqlGenerationHelper, RivenPostgreSqlSqlGenerationHelper>();
