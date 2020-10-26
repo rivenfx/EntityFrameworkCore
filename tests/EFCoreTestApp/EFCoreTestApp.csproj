@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj" />
+    <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj" />
+  </ItemGroup>
+
+
+</Project>

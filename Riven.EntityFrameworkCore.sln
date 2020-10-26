@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.PostgreSQL", "src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj", "{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreTestApp", "tests\EFCoreTestApp\EFCoreTestApp.csproj", "{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{7DA2EF66-1BDB-430D-8FF8-7103F9CDF5E3} = {47E7BD69-537F-4879-A5C2-A1A0A53198E5}
 		{2D1D76EA-218B-4463-8E9E-80046D7EFD08} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
+		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E} = {5A0F5841-B54B-458A-BC31-2E800C2AE972}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD0B5EDE-AA1C-4E1D-87A8-90BBEACF82ED}
