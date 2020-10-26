@@ -9,6 +9,9 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+using System.Runtime.CompilerServices;
+
+[assembly:InternalsVisibleTo("Devart.Data.Oracle.Entity.EFCore")]
 
 namespace Microsoft.EntityFrameworkCore
 {
@@ -70,8 +73,27 @@ namespace Microsoft.EntityFrameworkCore
         /// <returns></returns>
         public static DbContextOptionsBuilder UseRivenDevartOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
-            return optionsBuilder
-                 .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
+            //var serviceCharacteristics = default(EntityFrameworkServicesBuilder.ServiceCharacteristics);
+
+            //if (EntityFrameworkRelationalServicesBuilder.RelationalServices.TryGetValue(typeof(ISqlGenerationHelper), out serviceCharacteristics))
+            //{
+            //    //optionsBuilder.UseInternalServiceProvider()
+
+            //    //serviceCharacteristics.Lifetime;
+            //}
+            //var coreOptionsExtension = optionsBuilder.Options.FindExtension<CoreOptionsExtension>();
+            //coreOptionsExtension.
+
+
+            //var oopBuilder=new OopBuilder();
+            //oopBuilder.
+            //Devart.Data.Oracle.OraEntityUtils
+            //Pose.Shim.Replace(()=> { OraEntityUtils})
+
+            return optionsBuilder;
+
+            //return optionsBuilder
+            //     .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
         }
 
     }
