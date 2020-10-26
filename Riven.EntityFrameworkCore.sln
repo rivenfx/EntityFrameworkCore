@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreTestApp", "tests\EFCoreTestApp\EFCoreTestApp.csproj", "{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.DevartOracle", "src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj", "{992DE888-C41B-4C45-86B3-0F6ACB553925}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992DE888-C41B-4C45-86B3-0F6ACB553925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992DE888-C41B-4C45-86B3-0F6ACB553925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992DE888-C41B-4C45-86B3-0F6ACB553925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992DE888-C41B-4C45-86B3-0F6ACB553925}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{2D1D76EA-218B-4463-8E9E-80046D7EFD08} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E} = {5A0F5841-B54B-458A-BC31-2E800C2AE972}
+		{992DE888-C41B-4C45-86B3-0F6ACB553925} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD0B5EDE-AA1C-4E1D-87A8-90BBEACF82ED}
