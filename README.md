@@ -1,5 +1,5 @@
-# Riven.System.Linq.Dynamic.Core.Extensions
-System.Linq.Dynamic.Core  Extensions
+# EntityFrameworkCore Extensions
+
 
 
 ## 996.ICU LICENSE
@@ -10,9 +10,9 @@ System.Linq.Dynamic.Core  Extensions
 
 ## Nuget Packages
 
-[![Build Status](https://dev.azure.com/rivenfx/RivenFx/_apis/build/status/rivenfx.LinqDynamic?branchName=master)](https://dev.azure.com/rivenfx/RivenFx/_build/latest?definitionId=5&branchName=master)
+
 
 |Package|Status|
 |:------|:-----:|
-|Riven.System.Linq.Dynamic.Core.Extensions|[![NuGet version](https://badge.fury.io/nu/Riven.System.Linq.Dynamic.Core.Extensions.svg)](https://www.nuget.org/packages/Riven.System.Linq.Dynamic.Core.Extensions/)|
-|Riven.System.Linq.Dynamic.Core.Extensions|[![NuGet version](https://badge.fury.io/nu/Riven.System.Linq.Dynamic.Core.Extensions.svg)](https://www.nuget.org/packages/Riven.System.Linq.Dynamic.Core.Extensions/)|
+|Riven.EntityFrameworkCore.Oracle|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.Oracle.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.Oracle/)|
+|Riven.EntityFrameworkCore.PostgreSQL|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.PostgreSQL.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.PostgreSQL/)|
