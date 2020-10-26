@@ -10,7 +10,7 @@
 
 ## Nuget Packages
 
-
+[![Build Status](https://dev.azure.com/rivenfx/RivenFx/_apis/build/status/rivenfx.EntityFrameworkCore?branchName=master)](https://dev.azure.com/rivenfx/RivenFx/_build/latest?definitionId=7&branchName=master)
 
 |Package|Status|
 |:------|:-----:|
