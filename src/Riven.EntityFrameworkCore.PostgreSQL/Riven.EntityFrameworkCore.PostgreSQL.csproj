@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\version.props" />
+  <Import Project="..\..\repository_info.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
+
+    <AssemblyName>Riven.EntityFrameworkCore.PostgreSQL</AssemblyName>
+    <PackageId>Riven.EntityFrameworkCore.PostgreSQL</PackageId>
+    <Description>Riven.EntityFrameworkCore.PostgreSQL</Description>
+    <PackageTags>efcore;ef core;postgresql;postgres;postgre;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

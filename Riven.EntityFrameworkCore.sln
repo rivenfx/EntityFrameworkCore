@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3FD84D57-19D7-4E73-B7CB-2B4D35E60103}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		common.props = common.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+		repository_info.props = repository_info.props
+		version.props = version.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nupkg", "nupkg", "{7553ECD2-0AB7-4AE9-8E63-1489C5A117B7}"
+	ProjectSection(SolutionItems) = preProject
+		nupkg\common.ps1 = nupkg\common.ps1
+		nupkg\pack.ps1 = nupkg\pack.ps1
+		nupkg\push_packages.ps1 = nupkg\push_packages.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{47E7BD69-537F-4879-A5C2-A1A0A53198E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{7DA2EF66-1BDB-430D-8FF8-7103F9CDF5E3}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build_and_publish_nuget.yml = .github\workflows\build_and_publish_nuget.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5A0F5841-B54B-458A-BC31-2E800C2AE972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.Oracle", "src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj", "{2D1D76EA-218B-4463-8E9E-80046D7EFD08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.PostgreSQL", "src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj", "{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D1D76EA-218B-4463-8E9E-80046D7EFD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1D76EA-218B-4463-8E9E-80046D7EFD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1D76EA-218B-4463-8E9E-80046D7EFD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1D76EA-218B-4463-8E9E-80046D7EFD08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7553ECD2-0AB7-4AE9-8E63-1489C5A117B7} = {3FD84D57-19D7-4E73-B7CB-2B4D35E60103}
+		{47E7BD69-537F-4879-A5C2-A1A0A53198E5} = {3FD84D57-19D7-4E73-B7CB-2B4D35E60103}
+		{7DA2EF66-1BDB-430D-8FF8-7103F9CDF5E3} = {47E7BD69-537F-4879-A5C2-A1A0A53198E5}
+		{2D1D76EA-218B-4463-8E9E-80046D7EFD08} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
+		{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD0B5EDE-AA1C-4E1D-87A8-90BBEACF82ED}
+	EndGlobalSection
+EndGlobal
