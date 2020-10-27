@@ -73,27 +73,8 @@ namespace Microsoft.EntityFrameworkCore
         /// <returns></returns>
         public static DbContextOptionsBuilder UseRivenDevartOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
-            //var serviceCharacteristics = default(EntityFrameworkServicesBuilder.ServiceCharacteristics);
-
-            //if (EntityFrameworkRelationalServicesBuilder.RelationalServices.TryGetValue(typeof(ISqlGenerationHelper), out serviceCharacteristics))
-            //{
-            //    //optionsBuilder.UseInternalServiceProvider()
-
-            //    //serviceCharacteristics.Lifetime;
-            //}
-            //var coreOptionsExtension = optionsBuilder.Options.FindExtension<CoreOptionsExtension>();
-            //coreOptionsExtension.
-
-
-            //var oopBuilder=new OopBuilder();
-            //oopBuilder.
-            //Devart.Data.Oracle.OraEntityUtils
-            //Pose.Shim.Replace(()=> { OraEntityUtils})
-
-            return optionsBuilder;
-
-            //return optionsBuilder
-            //     .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
+            return optionsBuilder
+                 .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
         }
 
     }
