@@ -64,11 +64,11 @@ namespace Microsoft.EntityFrameworkCore
             {
                 if (connectionString.EndsWith(";"))
                 {
-                    connectionString = $"{connectionString}license key={license}";
+                    connectionString = $"{connectionString}license key={license};";
                 }
                 else
                 {
-                    connectionString = $"{connectionString};license key={license}";
+                    connectionString = $"{connectionString};license key={license};";
                 }
             }
 
