@@ -17,17 +17,31 @@ namespace EFCoreTestApp.Database
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>();
 
+            // PostgreSQL
+
+            //builder.UseRivenPostgreSQL(
+            //    "server=;port=;database=;uid=;pwd=;"
+            //    );
+
+
+
+
+            // Oracle
 
             //builder.UseRivenOracle(
             //    ""
             //     );
-            //builder.UseRivenPostgreSQL(
-            //    ""
-            //);
 
-            builder.UseRivenPostgreSQL(
-                "server=;port=;database=;uid=;pwd=;"
-                );
+
+
+
+            // Devart Oracle
+           
+            //var license = ""; // Devart license
+            //builder.UseRivenDevartOracle(
+            //    "",
+            //    license
+            //    );
 
             return new AppDbContext(builder.Options);
         }

@@ -32,12 +32,31 @@ namespace EFCoreTestApp
 
             services.AddDbContext<AppDbContext>((builder) =>
             {
-                builder.UseRivenOracle(
-                    ""
-                );
-                builder.UseRivenPostgreSQL(
-                    ""
-                );
+                // PostgreSQL
+
+                //builder.UseRivenPostgreSQL(
+                //    "server=;port=;database=;uid=;pwd=;"
+                //    );
+
+
+
+
+                // Oracle
+
+                //builder.UseRivenOracle(
+                //    ""
+                //     );
+
+
+
+
+                // Devart Oracle
+
+                //var license = ""; // Devart license
+                //builder.UseRivenDevartOracle(
+                //    "",
+                //    license
+                //    );
             });
         }
 
