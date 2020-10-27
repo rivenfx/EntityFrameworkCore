@@ -31,9 +31,7 @@ namespace Microsoft.EntityFrameworkCore
             optionsBuilder.UseOracle(connectionString, (dbContextOptionsBuilder) =>
             {
                 databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
-            });
-
-            optionsBuilder.UseRivenDevartOracleSqlGeneration();
+            }).UseRivenDevartOracleSqlGeneration();
 
             return optionsBuilder;
         }
@@ -56,9 +54,7 @@ namespace Microsoft.EntityFrameworkCore
             optionsBuilder.UseOracle(connection, (dbContextOptionsBuilder) =>
             {
                 databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
-            });
-
-            optionsBuilder.UseRivenDevartOracleSqlGeneration();
+            }).UseRivenDevartOracleSqlGeneration();
 
             return optionsBuilder;
         }
@@ -71,8 +67,6 @@ namespace Microsoft.EntityFrameworkCore
         /// <returns></returns>
         public static DbContextOptionsBuilder UseRivenDevartOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
-            return optionsBuilder;
-
             return optionsBuilder
                  .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
         }
