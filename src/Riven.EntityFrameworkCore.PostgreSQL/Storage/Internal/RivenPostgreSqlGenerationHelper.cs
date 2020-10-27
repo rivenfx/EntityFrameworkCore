@@ -9,9 +9,9 @@ using System.Text;
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "EF1001:Internal EF Core API usage.", Justification = "<挂起>")]
-    public class RivenPostgreSqlSqlGenerationHelper : NpgsqlSqlGenerationHelper
+    public class RivenPostgreSqlGenerationHelper : NpgsqlSqlGenerationHelper
     {
-        public RivenPostgreSqlSqlGenerationHelper([NotNull] RelationalSqlGenerationHelperDependencies dependencies)
+        public RivenPostgreSqlGenerationHelper([NotNull] RelationalSqlGenerationHelperDependencies dependencies)
             : base(dependencies)
         {
         }
