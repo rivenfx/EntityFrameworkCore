@@ -10,11 +10,18 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System.Runtime.CompilerServices;
+using Devart.Data.Oracle.Entity.Configuration;
 
 namespace Microsoft.EntityFrameworkCore
 {
     public static class RivenDevartOracleDbContextOptionsExtensions
     {
+        static RivenDevartOracleDbContextOptionsExtensions()
+        {
+            RivenDevartOracleDbContextOptionsExtensions
+                .UseRivenDevartOracleQuoting(null, false);
+        }
+
         /// <summary>
         /// Configures the context to connect to a Oracle database. by RivenFx
         /// </summary>
@@ -28,12 +35,13 @@ namespace Microsoft.EntityFrameworkCore
              [CanBeNull] Action<OracleDbContextOptionsBuilder> databaseOptionsBuilderAction = null
             )
         {
-            optionsBuilder.UseOracle(connectionString, (dbContextOptionsBuilder) =>
-            {
-                databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
-            }).UseRivenDevartOracleSqlGeneration();
+            return optionsBuilder.UseOracle(
+                connectionString,
+                (dbContextOptionsBuilder) =>
+                {
+                    databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
+                });
 
-            return optionsBuilder;
         }
 
         /// <summary>
@@ -51,24 +59,27 @@ namespace Microsoft.EntityFrameworkCore
             [NotNull] DbConnection connection,
             [CanBeNull] Action<OracleDbContextOptionsBuilder> databaseOptionsBuilderAction = null)
         {
-            optionsBuilder.UseOracle(connection, (dbContextOptionsBuilder) =>
-            {
-                databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
-            }).UseRivenDevartOracleSqlGeneration();
-
-            return optionsBuilder;
+            return optionsBuilder.UseOracle(
+                    connection,
+                    (dbContextOptionsBuilder) =>
+                    {
+                        databaseOptionsBuilderAction?
+                        .Invoke(dbContextOptionsBuilder);
+                    });
         }
 
-
         /// <summary>
-        /// 使用RivenFx的SqlGeneration实现
+        /// 生成sql时包含双引号, 启用："Id" 不启用：Id
         /// </summary>
         /// <param name="optionsBuilder"></param>
+        /// <param name="enable">是否启用,默认false</param>
         /// <returns></returns>
-        public static DbContextOptionsBuilder UseRivenDevartOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
+        public static DbContextOptionsBuilder UseRivenDevartOracleQuoting([NotNull] this DbContextOptionsBuilder optionsBuilder, bool enable = false)
         {
-            return optionsBuilder
-                 .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
+            OracleEntityProviderConfig.Instance.Workarounds
+                .DisableQuoting = !enable;
+
+            return optionsBuilder;
         }
 
     }
