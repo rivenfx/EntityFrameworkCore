@@ -17,7 +17,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     public class RivenDevartOracleSqlGenerationHelper : RelationalSqlGenerationHelper
     {
         protected const string GenerateParameterNameTemplate = "\"{0}\"";
-        public static string BatchTerminatorStr { get; protected set; } = "GO" + Environment.NewLine + Environment.NewLine;
+        public static string BatchTerminatorStr { get; protected set; } = Environment.NewLine + "/" + Environment.NewLine + Environment.NewLine;
 
         public RivenDevartOracleSqlGenerationHelper([NotNull] RelationalSqlGenerationHelperDependencies dependencies)
             : base(dependencies)
@@ -25,14 +25,21 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         }
 
+        public override string BatchTerminator => BatchTerminatorStr;
+
         public override string EscapeIdentifier(string identifier)
         {
-            return base.EscapeIdentifier(identifier).ToUpperInvariant();
+            return base.EscapeIdentifier(
+                identifier.ToUpperInvariant()
+                );
         }
 
         public override void EscapeIdentifier(StringBuilder builder, string identifier)
         {
-            base.EscapeIdentifier(builder, identifier.ToUpperInvariant());
+            base.EscapeIdentifier(
+                builder,
+                identifier.ToUpperInvariant()
+                );
         }
 
 
@@ -48,10 +55,10 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override void GenerateParameterName(StringBuilder builder, string name)
         {
-            builder.Append(GenerateParameterName(name));
+            builder.Append(this.GenerateParameterName(name));
         }
 
-        public override string BatchTerminator => BatchTerminatorStr;
+
 
         public override string DelimitIdentifier(string identifier)
         {
