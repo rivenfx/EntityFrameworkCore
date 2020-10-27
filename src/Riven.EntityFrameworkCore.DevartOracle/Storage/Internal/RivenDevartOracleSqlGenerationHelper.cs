@@ -8,8 +8,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using aaa = Devart.Data.Oracle.OracleUtils;
-
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
 
