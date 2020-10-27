@@ -14,5 +14,6 @@
 
 |Package|Status|
 |:------|:-----:|
-|Riven.EntityFrameworkCore.Oracle|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.Oracle.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.Oracle/)|
 |Riven.EntityFrameworkCore.PostgreSQL|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.PostgreSQL.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.PostgreSQL/)|
+|Riven.EntityFrameworkCore.Oracle|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.Oracle.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.Oracle/)|
+|Riven.EntityFrameworkCore.DevartOracle|[![NuGet version](https://badge.fury.io/nu/Riven.EntityFrameworkCore.DevartOracle.svg)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.DevartOracle/)|
