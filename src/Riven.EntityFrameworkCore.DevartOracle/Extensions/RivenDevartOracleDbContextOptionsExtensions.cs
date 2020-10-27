@@ -11,8 +11,6 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("Devart.Data.Oracle.Entity.EFCore")]
-
 namespace Microsoft.EntityFrameworkCore
 {
     public static class RivenDevartOracleDbContextOptionsExtensions
@@ -73,6 +71,8 @@ namespace Microsoft.EntityFrameworkCore
         /// <returns></returns>
         public static DbContextOptionsBuilder UseRivenDevartOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
+            return optionsBuilder;
+
             return optionsBuilder
                  .ReplaceService<ISqlGenerationHelper, RivenDevartOracleSqlGenerationHelper>();
         }
