@@ -5,7 +5,7 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
 
     <AssemblyName>Riven.EntityFrameworkCore.DevartOracle</AssemblyName>
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.13.1107" />
+    <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.11.980" />
   </ItemGroup>
 
 
