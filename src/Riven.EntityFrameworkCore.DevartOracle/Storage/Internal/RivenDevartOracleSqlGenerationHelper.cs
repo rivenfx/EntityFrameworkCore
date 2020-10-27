@@ -60,7 +60,11 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override string DelimitIdentifier(string identifier)
         {
-            Check.NotEmpty(identifier, nameof(identifier));
+            if (string.IsNullOrWhiteSpace(identifier))
+            {
+                throw new ArgumentNullException(identifier);
+            }
+
             // Interpolation okay; strings
             return string.Format(
                 GenerateParameterNameTemplate,
@@ -70,7 +74,10 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override void DelimitIdentifier(StringBuilder builder, string identifier)
         {
-            Check.NotEmpty(identifier, nameof(identifier));
+            if (string.IsNullOrWhiteSpace(identifier))
+            {
+                throw new ArgumentNullException(identifier);
+            }
 
             builder.Append(
                 this.DelimitIdentifier(identifier)
