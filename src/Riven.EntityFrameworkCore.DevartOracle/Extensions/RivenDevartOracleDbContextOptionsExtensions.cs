@@ -45,6 +45,41 @@ namespace Microsoft.EntityFrameworkCore
         }
 
         /// <summary>
+        /// Configures the context to connect to a Oracle database. by RivenFx
+        /// </summary>
+        /// <param name="optionsBuilder"> The builder being used to configure the context. </param>
+        /// <param name="connectionString"> The connection string of the database to connect to. </param>
+        /// <param name="license"> Devart oracle drive license key. </param>
+        /// <param name="oracleOptionsAction">An optional action to allow additional Oracle specific configuration.</param>
+        /// <returns> The options builder so that further configuration can be chained. </returns>
+        public static DbContextOptionsBuilder UseRivenDevartOracle(
+             [NotNull] this DbContextOptionsBuilder optionsBuilder,
+             [NotNull] string connectionString,
+             [NotNull] string license,
+             [CanBeNull] Action<OracleDbContextOptionsBuilder> databaseOptionsBuilderAction = null
+            )
+        {
+            // 处理拼接证书
+            if (!connectionString.ToLower().Contains("license key="))
+            {
+                if (connectionString.EndsWith(";"))
+                {
+                    connectionString = $"{connectionString}license key={license}";
+                }
+                else
+                {
+                    connectionString = $"{connectionString};license key={license}";
+                }
+            }
+
+            return optionsBuilder.UseRivenDevartOracle(
+                connectionString,
+                databaseOptionsBuilderAction
+                );
+
+        }
+
+        /// <summary>
         ///     Configures the context to connect to a Oracle database. by RivenFx
         /// </summary>
         /// <param name="optionsBuilder"> The builder being used to configure the context. </param>
