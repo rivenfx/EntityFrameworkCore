@@ -2,9 +2,9 @@
 # https://docs.microsoft.com/zh-cn/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#ci-triggers
 trigger:
   batch: true
-  branches:
+  tags:
     include:
-      - refs/tags/.*
+    - v*
 
 pool:
   vmImage: 'ubuntu-latest'
