@@ -17,12 +17,17 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override string EscapeIdentifier(string identifier)
         {
-            return base.EscapeIdentifier(identifier).ToUpperInvariant();
+            return base.EscapeIdentifier(
+                identifier.ToUpperInvariant()
+                );
         }
 
         public override void EscapeIdentifier(StringBuilder builder, string identifier)
         {
-            base.EscapeIdentifier(builder, identifier.ToUpperInvariant());
+            base.EscapeIdentifier(
+                builder,
+                identifier.ToUpperInvariant()
+                );
         }
     }
 }

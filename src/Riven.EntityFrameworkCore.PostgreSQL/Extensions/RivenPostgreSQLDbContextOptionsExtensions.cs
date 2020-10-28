@@ -74,7 +74,7 @@ namespace Microsoft.EntityFrameworkCore
         public static DbContextOptionsBuilder UseRivenPostgreSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
             return optionsBuilder
-                     .ReplaceService<ISqlGenerationHelper, RivenPostgreSqlSqlGenerationHelper>();
+                     .ReplaceService<ISqlGenerationHelper, RivenPostgreSqlGenerationHelper>();
         }
 
     }

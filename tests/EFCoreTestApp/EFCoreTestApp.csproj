@@ -4,9 +4,21 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  
   <ItemGroup>
     <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj" />
-    <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj" />
     <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj" />
   </ItemGroup>
 
