@@ -23,11 +23,60 @@ Please note: once the use of the open source projects as well as the reference f
 
 
 ## Quick start
-TODO
+1. PostgreSQL
+```csharp
+builder.UseRivenPostgreSQL(
+  "database connection string"
+);
+
+builder.UseRivenPostgreSQL(
+  "database connection string",
+  (options)=>
+  {
+
+  }
+);
+```
+2. Oracle
+```csharp
+// Default SQLCompatibility V11
+builder.UseRivenOracle(
+  "database connection string"
+);
+
+builder.UseRivenOracle(
+  "database connection string",
+  (options)=>
+  {
+      //  SQLCompatibility V12
+      //options.UseOracleSQLCompatibility(OracleSQLCompatibility.V12)
+  }
+);
+```
+
+3. Devart Oracle
+```csharp
+var license = ""; // Devart license
+builder.UseRivenDevartOracle(
+  "database connection string"，
+  license
+);
+
+builder.UseRivenDevartOracle(
+  "database connection string",
+  license,
+  (options)=>
+  {
+
+  }
+);
+```
 
 
 ## Demos
-TODO
+Demo Address: [link](/tests/EFCoreTestApp)
+
+
 
 ## Q&A
 If you have any questions, you can go to  [Issues](https://github.com/rivenfx/EntityFrameworkCore/issues)  to ask them.
