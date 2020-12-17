@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 		LICENSE = LICENSE
 		README.md = README.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
 		repository_info.props = repository_info.props
 		version.props = version.props
 	EndProjectSection
@@ -33,13 +34,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58AB7DB8-20C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5A0F5841-B54B-458A-BC31-2E800C2AE972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.Oracle", "src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj", "{2D1D76EA-218B-4463-8E9E-80046D7EFD08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Riven.EntityFrameworkCore.Oracle", "src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj", "{2D1D76EA-218B-4463-8E9E-80046D7EFD08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.PostgreSQL", "src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj", "{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Riven.EntityFrameworkCore.PostgreSQL", "src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj", "{7BE1D965-0B33-4CBD-BDA4-62BADB718E3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreTestApp", "tests\EFCoreTestApp\EFCoreTestApp.csproj", "{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreTestApp", "tests\EFCoreTestApp\EFCoreTestApp.csproj", "{673CDA2E-3341-4C49-95A6-E90B2BDBF80E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.DevartOracle", "src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj", "{992DE888-C41B-4C45-86B3-0F6ACB553925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Riven.EntityFrameworkCore.DevartOracle", "src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj", "{992DE888-C41B-4C45-86B3-0F6ACB553925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
