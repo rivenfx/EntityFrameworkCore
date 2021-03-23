@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 
+using Npgsql;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 
 using System;
@@ -27,8 +28,12 @@ namespace Microsoft.EntityFrameworkCore
              [CanBeNull] Action<NpgsqlDbContextOptionsBuilder> dbContextOptionsAction = null
             )
         {
+            var builder = new NpgsqlConnectionStringBuilder(connectionString);
+            builder.Database = builder.Database.ToLower();
+            var newConnectionString = builder.ConnectionString;
+
             optionsBuilder.UseNpgsql(
-                connectionString,
+                newConnectionString,
                 (dbContextOptionsBuilder) =>
                 {
                     dbContextOptionsAction?.Invoke(dbContextOptionsBuilder);
