@@ -33,7 +33,9 @@ namespace Microsoft.EntityFrameworkCore
                     dbContextOptionsBuilder.UseOracleSQLCompatibility();
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
-                .UseRivenOracleSqlGeneration();
+                .UseRivenOracleSqlGeneration()
+                .UseRivenOracleRelationalCommandBuilderFactory()
+                ;
 
 
             return optionsBuilder;
@@ -61,7 +63,9 @@ namespace Microsoft.EntityFrameworkCore
                     dbContextOptionsBuilder.UseOracleSQLCompatibility();
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
-                .UseRivenOracleSqlGeneration();
+                .UseRivenOracleSqlGeneration()
+                .UseRivenOracleRelationalCommandBuilderFactory()
+                ;
             return optionsBuilder;
         }
 
@@ -89,14 +93,27 @@ namespace Microsoft.EntityFrameworkCore
         }
 
         /// <summary>
-        /// 使用RivenFx的SqlGeneration实现
+        /// 使用 RivenFx 实现的 Oracle SqlGeneration
         /// </summary>
         /// <param name="optionsBuilder"></param>
         /// <returns></returns>
         public static DbContextOptionsBuilder UseRivenOracleSqlGeneration(this DbContextOptionsBuilder optionsBuilder)
         {
             return optionsBuilder
-                 .ReplaceService<ISqlGenerationHelper, RivenOracleSqlGenerationHelper>();
+                 .ReplaceService<ISqlGenerationHelper, RivenOracleSqlGenerationHelper>()
+                 ;
+        }
+
+        /// <summary>
+        /// 使用 RivenFx 实现的 Oracle RelationalCommandBuilderFactory
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
+        /// <returns></returns>
+        public static DbContextOptionsBuilder UseRivenOracleRelationalCommandBuilderFactory(this DbContextOptionsBuilder optionsBuilder)
+        {
+            return optionsBuilder
+                .ReplaceService<IRelationalCommandBuilderFactory, RivenOracleRelationalCommandBuilderFactory>()
+                ;
         }
 
     }
