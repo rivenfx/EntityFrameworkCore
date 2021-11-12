@@ -15,19 +15,16 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
         }
 
-        public override string EscapeIdentifier(string identifier)
+        public override string DelimitIdentifier(string identifier)
         {
-            return base.EscapeIdentifier(
-                identifier.ToUpperInvariant()
-                );
+            return EscapeIdentifier(identifier);
         }
 
-        public override void EscapeIdentifier(StringBuilder builder, string identifier)
+        public override void DelimitIdentifier(StringBuilder builder, string identifier)
         {
-            base.EscapeIdentifier(
-                builder,
-                identifier.ToUpperInvariant()
-                );
+            //builder.Append('"');
+            EscapeIdentifier(builder, identifier);
+            //builder.Append('"');
         }
     }
 }
