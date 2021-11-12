@@ -5,7 +5,7 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
 
     <AssemblyName>Riven.EntityFrameworkCore.Oracle</AssemblyName>
@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Oracle.EntityFrameworkCore" Version="3.19.80" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
   </ItemGroup>
 
 </Project>
