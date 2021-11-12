@@ -6,14 +6,8 @@ $packOutputFolder = Join-Path $packFolder "dist"        # 输出nuget package �
 
 
 # 所有的项目名称
-#$projects = (
-#    "Riven.EntityFrameworkCore.DevartOracle",
-#    "Riven.EntityFrameworkCore.Oracle",
-#    "Riven.EntityFrameworkCore.PostgreSQL"
-#)
-
 $projects = (
     "Riven.EntityFrameworkCore.DevartOracle",
+    "Riven.EntityFrameworkCore.Oracle",
     "Riven.EntityFrameworkCore.PostgreSQL"
 )
-
