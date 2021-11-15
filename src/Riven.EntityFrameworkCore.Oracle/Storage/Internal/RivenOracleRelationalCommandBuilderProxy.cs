@@ -15,6 +15,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public const string APPEND_METHOD = nameof(IRelationalCommandBuilder.Append);
 
+        public const string APPEND_METHOD_REGEX_PATTERN = "\".*?\"";
+
         public static readonly Type RETURN_TYPE = typeof(IRelationalCommandBuilder);
 
         IRelationalCommandBuilder _builder;
@@ -37,8 +39,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 && args[0] is string)
             {
                 var inputVal = args[0].ToString();
-                //var matchCollection = Regex.Matches(inputVal, ":new.\".*? \"");
-                var matchCollection = Regex.Matches(inputVal, "\".*? \"");
+                var matchCollection = Regex.Matches(inputVal, APPEND_METHOD_REGEX_PATTERN);
                 if (matchCollection.Count > 0)
                 {
                     foreach (Match match in matchCollection)
