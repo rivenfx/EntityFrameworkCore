@@ -1,2 +1,2 @@
-# V0.8.2
-* oracle默认不限制长度的字符串字段映射为nclob
+# V0.8.3
+* oracle驱动，当字符串类型maxlength字段超过2000时自动处理为nclob或clob
