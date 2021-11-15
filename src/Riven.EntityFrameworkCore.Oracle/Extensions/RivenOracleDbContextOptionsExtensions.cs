@@ -35,6 +35,7 @@ namespace Microsoft.EntityFrameworkCore
                 })
                 .UseRivenOracleSqlGeneration()
                 .UseRivenOracleRelationalCommandBuilderFactory()
+                .UseRivenOracleTypeMapping()
                 ;
 
 
@@ -65,6 +66,7 @@ namespace Microsoft.EntityFrameworkCore
                 })
                 .UseRivenOracleSqlGeneration()
                 .UseRivenOracleRelationalCommandBuilderFactory()
+                .UseRivenOracleTypeMapping()
                 ;
             return optionsBuilder;
         }
@@ -113,6 +115,18 @@ namespace Microsoft.EntityFrameworkCore
         {
             return optionsBuilder
                 .ReplaceService<IRelationalCommandBuilderFactory, RivenOracleRelationalCommandBuilderFactory>()
+                ;
+        }
+
+        /// <summary>
+        /// 使用 RivenFx 实现的 Oracle RelationalTypeMappingSource
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
+        /// <returns></returns>
+        public static DbContextOptionsBuilder UseRivenOracleTypeMapping(this DbContextOptionsBuilder optionsBuilder)
+        {
+            return optionsBuilder
+                .ReplaceService<IRelationalTypeMappingSource, RivenOracleTypeMappingSource>()
                 ;
         }
 
