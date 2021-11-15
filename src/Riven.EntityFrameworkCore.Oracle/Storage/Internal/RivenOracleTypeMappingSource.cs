@@ -22,24 +22,40 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
             if (mappingInfo.ClrType == typeof(string)
                 && string.IsNullOrWhiteSpace(mappingInfo.StoreTypeName)
-                && !mappingInfo.Size.HasValue
                 )
             {
-                var isUnicode = input.IsUnicode.HasValue ? input.IsUnicode.Value : true;
-                var storeTypeName = isUnicode ? "nclob" : "clob";
+                // 是否要替换为clob
+                var replaceToClob = false;
+                // 字段长度
+                var size = mappingInfo.Size;
 
-                input = new RelationalTypeMappingInfo(
-                    input.ClrType,
-                    storeTypeName,
-                    input.StoreTypeNameBase,
-                    input.IsKeyOrIndex,
-                    isUnicode,
-                    input.Size,
-                    input.IsRowVersion,
-                    input.IsFixedLength,
-                    input.Precision,
-                    input.Scale
-                    );
+                // 未指定长度 或 最大长度超过2000
+                if (!mappingInfo.Size.HasValue
+                    || mappingInfo.Size.Value > 2000)
+                {
+                    size = null;
+                    replaceToClob = true;
+                }
+
+                // 替换类型为clob
+                if (replaceToClob)
+                {
+                    var isUnicode = input.IsUnicode.HasValue ? input.IsUnicode.Value : true;
+                    var storeTypeName = isUnicode ? "nclob" : "clob";
+
+                    input = new RelationalTypeMappingInfo(
+                        input.ClrType,
+                        storeTypeName,
+                        input.StoreTypeNameBase,
+                        input.IsKeyOrIndex,
+                        isUnicode,
+                        size,
+                        input.IsRowVersion,
+                        input.IsFixedLength,
+                        input.Precision,
+                        input.Scale
+                        );
+                }
             }
 
             return base.FindMapping(input);
