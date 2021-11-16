@@ -17,7 +17,7 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         public static ModelBuilder TableMappingToOracle(this ModelBuilder modelBuilder,
             Func<IMutableEntityType, bool> verifyingEntityType)
         {
-            return modelBuilder.TableMapping(verifyingEntityType, (s) => s.ToUpper());
+            return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToUpper());
         }
     }
 }

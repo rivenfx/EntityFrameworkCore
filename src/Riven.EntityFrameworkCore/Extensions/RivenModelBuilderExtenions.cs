@@ -10,13 +10,13 @@ namespace Microsoft.EntityFrameworkCore.Extensions
     public static class RivenModelBuilderExtenions
     {
         /// <summary>
-        /// 表映射
+        /// 表映射,表名，列名处理
         /// </summary>
         /// <param name="modelBuilder">modelBuilder</param>
         /// <param name="verifyingEntityType">验证实体类型是否需要处理</param>
         /// <param name="processString">处理表名/列名的实现</param>
         /// <returns>modelBuilder</returns>
-        public static ModelBuilder TableMapping(this ModelBuilder modelBuilder,
+        public static ModelBuilder TableMappingTo(this ModelBuilder modelBuilder,
             Func<IMutableEntityType, bool> verifyingEntityType,
             Func<string, string> processString)
         {

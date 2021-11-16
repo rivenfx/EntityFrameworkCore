@@ -17,7 +17,7 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         public static ModelBuilder TableMappingToPostgreSQL(this ModelBuilder modelBuilder,
             Func<IMutableEntityType, bool> verifyingEntityType)
         {
-            return modelBuilder.TableMapping(verifyingEntityType, (s) => s.ToLower());
+            return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToLower());
         }
     }
 }
