@@ -105,6 +105,18 @@ namespace Microsoft.EntityFrameworkCore
         }
 
         /// <summary>
+        /// 使用 RivenFx 实现的 Oracle SqlGeneration ToUpper
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
+        /// <returns></returns>
+        public static DbContextOptionsBuilder UseRivenOracleSqlGenerationToUpper(this DbContextOptionsBuilder optionsBuilder)
+        {
+            return optionsBuilder
+                 .ReplaceService<ISqlGenerationHelper, RivenOracleSqlGenerationHelperToUpper>()
+                 ;
+        }
+
+        /// <summary>
         /// 使用 RivenFx 实现的 Oracle RelationalCommandBuilderFactory
         /// </summary>
         /// <param name="optionsBuilder"></param>
