@@ -17,7 +17,14 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         public static ModelBuilder TableMappingToDevartOracle(this ModelBuilder modelBuilder,
             Func<IMutableEntityType, bool> verifyingEntityType)
         {
-            return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToUpper());
+            return modelBuilder.TableMappingTo(verifyingEntityType, (s) =>
+            {
+                if (s.Length > 30)
+                {
+                    Console.WriteLine($"[ORA-00972:标识符过长]: {s}");
+                }
+                return s.ToUpper();
+            });
         }
 
         /// <summary>
