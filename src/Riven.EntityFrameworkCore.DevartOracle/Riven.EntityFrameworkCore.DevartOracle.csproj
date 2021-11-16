@@ -19,5 +19,9 @@
     <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.14.1382" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 
 </Project>
