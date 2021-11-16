@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -132,5 +133,52 @@ namespace Microsoft.EntityFrameworkCore.Extensions
             return modelBuilder;
         }
 
+        /// <summary>
+        /// 映射 Discriminator 字段
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        /// <param name="verifyingEntityType">验证实体类型是否需要处理</param>
+        /// <param name="maxLength">Discriminator列最大长度</param>
+        /// <returns></returns>
+        public static ModelBuilder MapDiscriminators(this ModelBuilder modelBuilder,
+            Func<IMutableEntityType, bool> verifyingEntityType, int maxLength = 512)
+        {
+            if (modelBuilder == null)
+            {
+                throw new ArgumentNullException(nameof(modelBuilder));
+            }
+
+            if (verifyingEntityType == null)
+            {
+                throw new ArgumentNullException(nameof(verifyingEntityType));
+            }
+
+            var model = modelBuilder.Model;
+            foreach (var entityType in model.GetEntityTypes())
+            {
+                // 校验
+                if (!verifyingEntityType(entityType))
+                {
+                    continue;
+                }
+
+                var property = entityType.GetProperties()
+                    .Where(o => o.IsShadowProperty() && o.Name.ToLower() == "discriminator")
+                    .FirstOrDefault();
+                if (property == null)
+                {
+                    continue;
+                }
+
+                // 最大长度设置
+                if (!property.GetMaxLength().HasValue)
+                {
+                    property.SetMaxLength(maxLength);
+                }
+            }
+
+
+            return modelBuilder;
+        }
     }
 }
