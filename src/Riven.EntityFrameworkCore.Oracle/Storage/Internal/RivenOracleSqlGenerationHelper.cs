@@ -22,13 +22,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override string EscapeIdentifier(string identifier)
         {
-            if (identifier.Length > 30)
-            {
-                identifier = GenNewIdentifier(identifier);
-            }
-
             return base.EscapeIdentifier(
-                identifier.ToUpper()
+                GenNewIdentifier(identifier)
             );
         }
 
@@ -36,7 +31,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             base.EscapeIdentifier(
                 builder,
-                identifier.ToUpper()
+                identifier
             );
         }
 
@@ -47,26 +42,23 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         /// <returns></returns>
         public static string GenNewIdentifier(string identifier)
         {
-            // 主外键、索引潮涨
-            if (identifier.StartsWith("PK_")
-                || identifier.StartsWith("FK_")
-                || identifier.StartsWith("IX_"))
+            if (identifier.Length > 30)
             {
-                if (!_identifierMap.TryGetValue(identifier, out string newIdentifier))
+                // 主外键、索引超长
+                if (identifier.StartsWith("PK_")
+                    || identifier.StartsWith("FK_")
+                    || identifier.StartsWith("IX_"))
                 {
-                    var start = identifier.Substring(0, 3);
-                    var end = GenerateMD5(identifier).Substring(0, 27);
-                    newIdentifier = $"{start}{end}";
-                    _identifierMap.Add(identifier, newIdentifier);
-                }
+                    if (!_identifierMap.TryGetValue(identifier, out string newIdentifier))
+                    {
+                        var start = identifier.Substring(0, 3);
+                        var end = GenerateMD5(identifier).Substring(0, 27);
+                        newIdentifier = $"{start}{end}";
+                        _identifierMap.Add(identifier, newIdentifier);
+                    }
 
-                return newIdentifier;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"命名超出最大长度(30): {identifier}   长度: {identifier.Length}");
-                Console.ResetColor();
+                    return newIdentifier.ToUpper();
+                }
             }
 
             return identifier;
