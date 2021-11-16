@@ -20,4 +20,9 @@
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>
