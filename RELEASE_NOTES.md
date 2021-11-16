@@ -1,4 +1,3 @@
-# V0.8.5
-* ModelBuilderExtenions 修改实现
-  * 支持处理表名、列名、主键名、外键名、索引名
+# V0.8.8
+* ModelBuilderExtenions 优化 Oracle 名称超长提示
 
