@@ -19,7 +19,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         public override string EscapeIdentifier(string identifier)
         {
             return base.EscapeIdentifier(
-                identifier.ToLowerInvariant()
+                identifier.ToLower()
                 );
         }
 
@@ -27,7 +27,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             base.EscapeIdentifier(
                 builder,
-                identifier.ToLowerInvariant()
+                identifier.ToLower()
                 );
         }
     }
