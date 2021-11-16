@@ -33,7 +33,6 @@ namespace Microsoft.EntityFrameworkCore
                     dbContextOptionsBuilder.UseOracleSQLCompatibility();
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
-                .UseRivenOracleSqlGeneration()
                 .UseRivenOracleTypeMapping()
                 ;
 
@@ -63,7 +62,6 @@ namespace Microsoft.EntityFrameworkCore
                     dbContextOptionsBuilder.UseOracleSQLCompatibility();
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
-                .UseRivenOracleSqlGeneration()
                 .UseRivenOracleTypeMapping()
                 ;
             return optionsBuilder;
