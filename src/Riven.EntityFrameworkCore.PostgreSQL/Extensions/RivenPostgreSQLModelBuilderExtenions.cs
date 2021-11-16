@@ -19,5 +19,15 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         {
             return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToLower());
         }
+
+        /// <summary>
+        /// 表映射到 PostgreSQL, 表名/列名 小写
+        /// </summary>
+        /// <param name="modelBuilder">modelBuilder</param>
+        /// <returns>modelBuilder</returns>
+        public static ModelBuilder TableMappingToPostgreSQL(this ModelBuilder modelBuilder)
+        {
+            return modelBuilder.TableMappingToPostgreSQL((e) => true);
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         {
             return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToUpper());
         }
+
+        /// <summary>
+        /// 表映射到 Devart Oracle, 表名/列名 大写
+        /// </summary>
+        /// <param name="modelBuilder">modelBuilder</param>
+        /// <returns>modelBuilder</returns>
+        public static ModelBuilder TableMappingToDevartOracle(this ModelBuilder modelBuilder)
+        {
+            return modelBuilder.TableMappingToDevartOracle((e) => true);
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         {
             return modelBuilder.TableMappingTo(verifyingEntityType, (s) => s.ToUpper());
         }
+
+        /// <summary>
+        /// 表映射到Oracle, 表名/列名 大写
+        /// </summary>
+        /// <param name="modelBuilder">modelBuilder</param>
+        /// <returns>modelBuilder</returns>
+        public static ModelBuilder TableMappingToOracle(this ModelBuilder modelBuilder)
+        {
+            return modelBuilder.TableMappingToOracle((e) => true);
+        }
     }
 }
