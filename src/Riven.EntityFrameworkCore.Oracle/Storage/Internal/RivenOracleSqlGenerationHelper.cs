@@ -24,26 +24,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             if (identifier.Length > 30)
             {
-                if (identifier.StartsWith("PK_")
-                    || identifier.StartsWith("FK_")
-                    || identifier.StartsWith("IX_"))
-                {
-                    if (!_identifierMap.TryGetValue(identifier, out string newIdentifier))
-                    {
-                        var start = identifier.Substring(0, 3);
-                        var end = GenerateMD5(identifier).Substring(0, 27);
-                        newIdentifier = $"{start}{end}";
-                        _identifierMap.Add(identifier, newIdentifier);
-                    }
-
-                    identifier = newIdentifier;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"命名超出最大长度(30): {identifier}   长度: {identifier.Length}");
-                    Console.ResetColor();
-                }
+                identifier = GenNewIdentifier(identifier);
             }
 
             return base.EscapeIdentifier(
@@ -59,7 +40,43 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             );
         }
 
+        /// <summary>
+        /// 处理并生成新的 identifier
+        /// </summary>
+        /// <param name="identifier"></param>
+        /// <returns></returns>
+        public static string GenNewIdentifier(string identifier)
+        {
+            // 主外键、索引潮涨
+            if (identifier.StartsWith("PK_")
+                || identifier.StartsWith("FK_")
+                || identifier.StartsWith("IX_"))
+            {
+                if (!_identifierMap.TryGetValue(identifier, out string newIdentifier))
+                {
+                    var start = identifier.Substring(0, 3);
+                    var end = GenerateMD5(identifier).Substring(0, 27);
+                    newIdentifier = $"{start}{end}";
+                    _identifierMap.Add(identifier, newIdentifier);
+                }
 
+                return newIdentifier;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"命名超出最大长度(30): {identifier}   长度: {identifier.Length}");
+                Console.ResetColor();
+            }
+
+            return identifier;
+        }
+
+        /// <summary>
+        /// 字符串MD5
+        /// </summary>
+        /// <param name="txt"></param>
+        /// <returns></returns>
         public static string GenerateMD5(string txt)
         {
             using (var mi = System.Security.Cryptography.MD5.Create())
