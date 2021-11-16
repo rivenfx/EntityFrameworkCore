@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Microsoft.EntityFrameworkCore.Extensions
@@ -10,7 +11,7 @@ namespace Microsoft.EntityFrameworkCore.Extensions
     public static class RivenModelBuilderExtenions
     {
         /// <summary>
-        /// 表映射,表名，列名处理
+        /// 表映射。表名/列名/主键/外键/索引 名称处理
         /// </summary>
         /// <param name="modelBuilder">modelBuilder</param>
         /// <param name="verifyingEntityType">验证实体类型是否需要处理</param>
@@ -48,37 +49,88 @@ namespace Microsoft.EntityFrameworkCore.Extensions
                 var entityBuilder = modelBuilder.Entity(entityType.ClrType);
 
                 // 表名处理
-                var tabaleName = entityBuilder.Metadata.GetTableName();
-                var annotation = entityBuilder.Metadata.GetAnnotation(RelationalAnnotationNames.TableName);
-                if (annotation != null)
                 {
-                    tabaleName = annotation.Value.ToString();
-                    entityBuilder.Metadata.RemoveAnnotation(RelationalAnnotationNames.TableName);
-                }
-                entityBuilder.Metadata.AddAnnotation(
-                        RelationalAnnotationNames.TableName,
-                        processString.Invoke(tabaleName)
-                        );
-
-                // 列名处理
-                var columnName = string.Empty;
-                foreach (var property in entityType.GetProperties())
-                {
-                    columnName = property.GetColumnBaseName();
-                    annotation = property.FindAnnotation(RelationalAnnotationNames.ColumnName);
+                    var tabaleName = entityBuilder.Metadata.GetTableName();
+                    var annotation = entityBuilder.Metadata.GetAnnotation(RelationalAnnotationNames.TableName);
                     if (annotation != null)
                     {
-                        columnName = annotation.Value.ToString();
-                        property.RemoveAnnotation(RelationalAnnotationNames.ColumnName);
+                        tabaleName = annotation.Value.ToString();
                     }
-                    property.AddAnnotation(
-                           RelationalAnnotationNames.ColumnName,
-                           processString.Invoke(columnName)
-                           );
+
+                    entityBuilder.Metadata.SetTableName(
+                        processString.Invoke(tabaleName)
+                        );
+                }
+
+                // 列名处理
+                {
+                    var annotation = default(IAnnotation);
+                    var columnName = string.Empty;
+                    foreach (var property in entityType.GetProperties())
+                    {
+                        columnName = property.GetColumnBaseName();
+                        annotation = property.FindAnnotation(RelationalAnnotationNames.ColumnName);
+                        if (annotation != null)
+                        {
+                            columnName = annotation.Value.ToString();
+                        }
+                        property.SetColumnName(
+                            processString.Invoke(columnName)
+                        );
+                    }
+                }
+
+                // 主键处理
+                {
+                    var keyName = string.Empty;
+                    var keys = entityBuilder.Metadata.GetKeys();
+                    foreach (var key in keys)
+                    {
+                        keyName = key.GetName();
+                        if (string.IsNullOrEmpty(keyName))
+                        {
+                            keyName = key.GetDefaultName();
+                        }
+                        keyName = processString.Invoke(keyName);
+                        key.SetName(keyName);
+                    }
+                }
+
+                // 外键处理
+                {
+                    var keyName = string.Empty;
+                    var keys = entityBuilder.Metadata.GetForeignKeys();
+                    foreach (var key in keys)
+                    {
+                        keyName = key.GetConstraintName();
+                        if (string.IsNullOrEmpty(keyName))
+                        {
+                            keyName = key.GetDefaultName();
+                        }
+                        keyName = processString.Invoke(keyName);
+                        key.SetConstraintName(keyName);
+                    }
+                }
+
+                // 索引处理
+                {
+                    var keyName = string.Empty;
+                    var keys = entityBuilder.Metadata.GetIndexes();
+                    foreach (var key in keys)
+                    {
+                        keyName = key.GetDatabaseName();
+                        if (string.IsNullOrEmpty(keyName))
+                        {
+                            keyName = key.GetDefaultDatabaseName();
+                        }
+                        keyName = processString.Invoke(keyName);
+                        key.SetDatabaseName(keyName);
+                    }
                 }
             }
 
             return modelBuilder;
         }
+
     }
 }
