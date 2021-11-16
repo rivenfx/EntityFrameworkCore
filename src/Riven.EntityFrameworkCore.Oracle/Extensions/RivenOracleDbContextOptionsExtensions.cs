@@ -34,7 +34,6 @@ namespace Microsoft.EntityFrameworkCore
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
                 .UseRivenOracleSqlGeneration()
-                .UseRivenOracleRelationalCommandBuilderFactory()
                 .UseRivenOracleTypeMapping()
                 ;
 
@@ -65,7 +64,6 @@ namespace Microsoft.EntityFrameworkCore
                     databaseOptionsBuilderAction?.Invoke(dbContextOptionsBuilder);
                 })
                 .UseRivenOracleSqlGeneration()
-                .UseRivenOracleRelationalCommandBuilderFactory()
                 .UseRivenOracleTypeMapping()
                 ;
             return optionsBuilder;
