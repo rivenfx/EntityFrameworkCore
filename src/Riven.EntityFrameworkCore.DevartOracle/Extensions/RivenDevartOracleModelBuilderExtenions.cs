@@ -21,14 +21,16 @@ namespace Microsoft.EntityFrameworkCore.Extensions
         {
             return modelBuilder.TableMappingTo(verifyingEntityType, (s) =>
             {
-                if (s.Length > 30)
+                var identifier = GenNewIdentifier(s).ToUpper();
+
+                if (identifier.Length > 30)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"[ORA-00972:标识符过长] 命名超出最大长度(30) : {s} ({s.Length})");
+                    Console.WriteLine($"[ORA-00972:标识符过长] 命名超出最大长度(30) : {identifier} ({identifier.Length})");
                     Console.ResetColor();
                 }
 
-                return GenNewIdentifier(s).ToUpper();
+                return identifier;
             });
         }
 
