@@ -1,8 +1,4 @@
-# V0.8.4
-* 新增  Riven.EntityFrameworkCore 公共库
-  * 基础的 ModelBuilderExtenions
-    * `modelBuilder.TableMappingTo((e)=>true,s=>s)`
-* 新增 DevartOracle/Oracle/PostgresSQL 的 ModelBuilderExtenions
-  * `modelBuilder.TableMappingToDevartOracle((e)=>true)`
-  * `modelBuilder.TableMappingToOracle((e)=>true)`
-  * `modelBuilder.TableMappingToPostgreSQL((e)=>true)`
+# V0.8.5
+* ModelBuilderExtenions 修改实现
+  * 支持处理表名、列名、主键名、外键名、索引名
+
