@@ -52,11 +52,6 @@ namespace Microsoft.EntityFrameworkCore.Extensions
                 // 表名处理
                 {
                     var tabaleName = entityBuilder.Metadata.GetTableName();
-                    var annotation = entityBuilder.Metadata.GetAnnotation(RelationalAnnotationNames.TableName);
-                    if (annotation != null)
-                    {
-                        tabaleName = annotation.Value.ToString();
-                    }
 
                     entityBuilder.Metadata.SetTableName(
                         processString.Invoke(tabaleName)
