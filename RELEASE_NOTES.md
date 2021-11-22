@@ -1,3 +1,3 @@
-# V0.8.7
-* ModelBuilderExtenions 优化 Oracle 名称超长提示
+# V0.8.8
+* 修改 `TableMappingTo` 默认实现
 
