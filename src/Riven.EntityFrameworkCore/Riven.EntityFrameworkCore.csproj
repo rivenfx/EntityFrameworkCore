@@ -1,23 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
   <Import Project="..\..\version.props" />
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.0;netstandard2.1;</TargetFrameworks>
+		<TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
-
     <AssemblyName>Riven.EntityFrameworkCore</AssemblyName>
     <PackageId>Riven.EntityFrameworkCore</PackageId>
     <Description>Riven.EntityFrameworkCore</Description>
     <PackageTags>efcore;ef core;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.12" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.12" />
   </ItemGroup>
 
 </Project>

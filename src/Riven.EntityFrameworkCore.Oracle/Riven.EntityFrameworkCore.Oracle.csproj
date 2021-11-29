@@ -5,7 +5,9 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netcoreapp3.1;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
+
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
 
     <AssemblyName>Riven.EntityFrameworkCore.Oracle</AssemblyName>
@@ -15,10 +17,22 @@
   </PropertyGroup>
 
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="3.21.4" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 
   <ItemGroup>

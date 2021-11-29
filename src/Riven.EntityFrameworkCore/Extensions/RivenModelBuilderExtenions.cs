@@ -64,7 +64,11 @@ namespace Microsoft.EntityFrameworkCore.Extensions
                     var columnName = string.Empty;
                     foreach (var property in entityType.GetProperties())
                     {
+#if NETSTANDARD2_0
+                        columnName = property.GetColumnName();
+#else
                         columnName = property.GetColumnBaseName();
+#endif
                         annotation = property.FindAnnotation(RelationalAnnotationNames.ColumnName);
                         if (annotation != null)
                         {
@@ -114,6 +118,15 @@ namespace Microsoft.EntityFrameworkCore.Extensions
                     var keys = entityBuilder.Metadata.GetIndexes();
                     foreach (var key in keys)
                     {
+#if NETSTANDARD2_0
+                        keyName = key.GetName();
+                        if (string.IsNullOrEmpty(keyName))
+                        {
+                            keyName = key.GetDefaultName();
+                        }
+                        keyName = processString.Invoke(keyName);
+                        key.SetName(keyName);
+#else
                         keyName = key.GetDatabaseName();
                         if (string.IsNullOrEmpty(keyName))
                         {
@@ -121,6 +134,7 @@ namespace Microsoft.EntityFrameworkCore.Extensions
                         }
                         keyName = processString.Invoke(keyName);
                         key.SetDatabaseName(keyName);
+#endif
                     }
                 }
             }

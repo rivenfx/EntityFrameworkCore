@@ -5,7 +5,10 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.0;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
+    
+    
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
 
     <AssemblyName>Riven.EntityFrameworkCore.PostgreSQL</AssemblyName>
@@ -14,10 +17,16 @@
     <PackageTags>efcore;ef core;postgresql;postgres;postgre;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.0" />
   </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.18" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
