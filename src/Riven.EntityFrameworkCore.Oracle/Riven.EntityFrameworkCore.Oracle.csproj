@@ -5,7 +5,7 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netcoreapp3.1;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.0;netstandard2.1;</TargetFrameworks>
     <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
 
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
@@ -16,24 +16,17 @@
     <PackageTags>efcore;ef core;oracle;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
   </PropertyGroup>
 
+  
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="System.Reflection.DispatchProxy" Version="4.7.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.18" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="3.19.130" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.12" />
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
-    <PackageReference Include="Oracle.EntityFrameworkCore" Version="3.21.4" />
-  </ItemGroup>
-
-  <!--<ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
-  </ItemGroup>-->
-
 
   <ItemGroup>
     <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
