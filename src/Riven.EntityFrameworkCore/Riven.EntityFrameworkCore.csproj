@@ -5,7 +5,7 @@
   <Import Project="..\..\repository_info.props" />
 
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.0;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.0;netstandard2.1;netcoreapp3.1;</TargetFrameworks>
 		<TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
     <AssemblyName>Riven.EntityFrameworkCore</AssemblyName>
@@ -18,7 +18,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.12" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' or '$(TargetFramework)'=='netcoreapp3.1'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
   </ItemGroup>
 
