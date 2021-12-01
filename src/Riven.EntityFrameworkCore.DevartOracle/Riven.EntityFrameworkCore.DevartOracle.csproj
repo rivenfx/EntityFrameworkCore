@@ -16,10 +16,14 @@
     <PackageTags>efcore;ef core;oracle;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+    <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.13.1107" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
     <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.14.1382" />
   </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
