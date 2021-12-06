@@ -31,4 +31,9 @@
     <ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Design\" />
+  </ItemGroup>
+
 </Project>

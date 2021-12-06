@@ -16,12 +16,6 @@ namespace Microsoft.EntityFrameworkCore
 {
     public static class RivenDevartOracleDbContextOptionsExtensions
     {
-        static RivenDevartOracleDbContextOptionsExtensions()
-        {
-            RivenDevartOracleDbContextOptionsExtensions
-                .UseRivenDevartOracleQuoting(null, false);
-        }
-
         /// <summary>
         /// Configures the context to connect to a Oracle database. by RivenFx
         /// </summary>
@@ -29,7 +23,7 @@ namespace Microsoft.EntityFrameworkCore
         /// <param name="connectionString"> The connection string of the database to connect to. </param>
         /// <param name="oracleOptionsAction">An optional action to allow additional Oracle specific configuration.</param>
         /// <returns> The options builder so that further configuration can be chained. </returns>
-        public static DbContextOptionsBuilder UseRivenDevartOracle(
+        public static DbContextOptionsBuilder UseDevartOracle(
              [NotNull] this DbContextOptionsBuilder optionsBuilder,
              [NotNull] string connectionString,
              [CanBeNull] Action<OracleDbContextOptionsBuilder> databaseOptionsBuilderAction = null
@@ -52,7 +46,7 @@ namespace Microsoft.EntityFrameworkCore
         /// <param name="license"> Devart oracle drive license key. </param>
         /// <param name="oracleOptionsAction">An optional action to allow additional Oracle specific configuration.</param>
         /// <returns> The options builder so that further configuration can be chained. </returns>
-        public static DbContextOptionsBuilder UseRivenDevartOracle(
+        public static DbContextOptionsBuilder UseDevartOracle(
              [NotNull] this DbContextOptionsBuilder optionsBuilder,
              [NotNull] string connectionString,
              [NotNull] string license,
@@ -72,7 +66,7 @@ namespace Microsoft.EntityFrameworkCore
                 }
             }
 
-            return optionsBuilder.UseRivenDevartOracle(
+            return optionsBuilder.UseDevartOracle(
                 connectionString,
                 databaseOptionsBuilderAction
                 );
@@ -90,7 +84,7 @@ namespace Microsoft.EntityFrameworkCore
         /// </param>
         /// <param name="oracleOptionsAction">An optional action to allow additional Oracle specific configuration.</param>
         /// <returns> The options builder so that further configuration can be chained. </returns>
-        public static DbContextOptionsBuilder UseRivenDevartOracle([NotNull] this DbContextOptionsBuilder optionsBuilder,
+        public static DbContextOptionsBuilder UseDevartOracle([NotNull] this DbContextOptionsBuilder optionsBuilder,
             [NotNull] DbConnection connection,
             [CanBeNull] Action<OracleDbContextOptionsBuilder> databaseOptionsBuilderAction = null)
         {
@@ -109,7 +103,7 @@ namespace Microsoft.EntityFrameworkCore
         /// <param name="optionsBuilder"></param>
         /// <param name="enable">是否启用,默认false</param>
         /// <returns></returns>
-        public static DbContextOptionsBuilder UseRivenDevartOracleQuoting([NotNull] this DbContextOptionsBuilder optionsBuilder, bool enable = false)
+        public static DbContextOptionsBuilder UseDevartOracleQuoting([NotNull] this DbContextOptionsBuilder optionsBuilder, bool enable = false)
         {
             OracleEntityProviderConfig.Instance.Workarounds
                 .DisableQuoting = !enable;
