@@ -21,48 +21,110 @@ Please note: once the use of the open source projects as well as the reference f
 |Riven.EntityFrameworkCore.Oracle|[![NuGet version](https://img.shields.io/nuget/v/Riven.EntityFrameworkCore.Oracle?color=brightgreen)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.Oracle/)|[![Nuget](https://img.shields.io/nuget/dt/Riven.EntityFrameworkCore.Oracle?color=brightgreen)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.Oracle/)|
 |Riven.EntityFrameworkCore.DevartOracle|[![NuGet version](https://img.shields.io/nuget/v/Riven.EntityFrameworkCore.DevartOracle?color=brightgreen)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.DevartOracle/)|[![Nuget](https://img.shields.io/nuget/dt/Riven.EntityFrameworkCore.DevartOracle?color=brightgreen)](https://www.nuget.org/packages/Riven.EntityFrameworkCore.DevartOracle/)|
 
-
 ## Quick start
-1. PostgreSQL
+
+**namespace:**
+
+```c#
+using Microsoft.EntityFrameworkCore.Extensions;
+```
+
+* **PostgreSQL**
+
+DesignTimeDbContextFactory：
+
 ```csharp
-builder.UseRivenPostgreSQL(
+var builder = new DbContextOptionsBuilder<AppDbContext>();
+
+// sample
+builder.UseNpgsql(
   "database connection string"
 );
-
-builder.UseRivenPostgreSQL(
+// OR
+builder.UseNpgsql(
   "database connection string",
   (options)=>
   {
 
   }
 );
+
+return new AppDbContext(builder.Options);
 ```
-2. Oracle
+
+AppDbContext OnModelCreating:
+
+```c#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+
+    // 写到最后
+    modelBuilder.TableMappingToPostgreSQL((entityType) =>
+    {
+        // 校验是否处理此实体
+        return true;
+    });
+}
+```
+
+* **Oracle**
+
+DesignTimeDbContextFactory：
+
 ```csharp
-// Default SQLCompatibility V11
-builder.UseRivenOracle(
+var builder = new DbContextOptionsBuilder<AppDbContext>();
+
+// Default SQLCompatibility V12
+builder.UseOracle(
   "database connection string"
 );
-
-builder.UseRivenOracle(
+// OR
+builder.UseOracle(
   "database connection string",
   (options)=>
   {
-      //  SQLCompatibility V12
-      //options.UseOracleSQLCompatibility(OracleSQLCompatibility.V12)
+      //  SQLCompatibility V11
+      //options.UseOracleSQLCompatibility(OracleSQLCompatibility.V11);
   }
 );
+
+return new AppDbContext(builder.Options);
 ```
 
-3. Devart Oracle
+AppDbContext OnModelCreating:
+
+```c#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+
+    // 写到最后
+    modelBuilder.TableMappingToOracle((entityType) =>
+    {
+        // 校验是否处理此实体
+        return true;
+    });
+}
+```
+
+* **Devart Oracle**
+
+DesignTimeDbContextFactory：
+
 ```csharp
+var builder = new DbContextOptionsBuilder<AppDbContext>();
+
 var license = ""; // Devart license
-builder.UseRivenDevartOracle(
+// sample
+builder.UseDevartOracle(
   "database connection string"，
   license
 );
-
-builder.UseRivenDevartOracle(
+// OR
+builder.UseDevartOracle(
   "database connection string",
   license,
   (options)=>
@@ -70,10 +132,32 @@ builder.UseRivenDevartOracle(
 
   }
 );
+return new AppDbContext(builder.Options);
+```
+
+AppDbContext OnModelCreating:
+
+```c#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+
+    // 写到最后
+    modelBuilder.TableMappingToDevartOracle((entityType) =>
+    {
+        // 校验是否处理此实体
+        return true;
+    });
+}
 ```
 
 
+
+
+
 ## Demos
+
 Demo Address: [link](/tests/EFCoreTestApp)
 
 

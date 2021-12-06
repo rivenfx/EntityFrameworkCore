@@ -19,6 +19,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj" />
+    <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.Oracle\Riven.EntityFrameworkCore.Oracle.csproj" />
     <ProjectReference Include="..\..\src\Riven.EntityFrameworkCore.PostgreSQL\Riven.EntityFrameworkCore.PostgreSQL.csproj" />
   </ItemGroup>
 

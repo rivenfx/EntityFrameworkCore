@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Design.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -17,31 +16,43 @@ namespace EFCoreTestApp.Database
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>();
 
+            // Êý¾Ý¿âÁ´½Ó×Ö·û´®
+            var connectionString = string.Empty;
+
             // PostgreSQL
 
-            //builder.UseRivenPostgreSQL(
-            //    "server=;port=;database=;uid=;pwd=;"
-            //    );
+            builder.UseNpgsql(
+                connectionString,
+                (options) =>
+                {
+
+                });
 
 
 
 
             // Oracle
-
-            //builder.UseRivenOracle(
-            //    ""
-            //     );
+            builder.UseOracle(
+                connectionString,
+                (options) =>
+                {
+                    //  SQLCompatibility V11
+                    options.UseOracleSQLCompatibility(OracleSQLCompatibility.V11);
+                });
 
 
 
 
             // Devart Oracle
-           
-            //var license = ""; // Devart license
-            //builder.UseRivenDevartOracle(
-            //    "",
-            //    license
-            //    );
+
+            var license = ""; // Devart license
+            builder.UseDevartOracle(
+                connectionString,
+                license,
+                (options) =>
+                {
+
+                });
 
             return new AppDbContext(builder.Options);
         }
