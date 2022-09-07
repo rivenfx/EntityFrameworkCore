@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Microsoft.EntityFrameworkCore.Extensions
+namespace Microsoft.EntityFrameworkCore
 {
 
     public static class RivenOracleDesignExtensions
