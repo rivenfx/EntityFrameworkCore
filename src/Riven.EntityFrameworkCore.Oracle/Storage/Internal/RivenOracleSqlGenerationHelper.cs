@@ -25,7 +25,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         public override string EscapeIdentifier(string identifier)
         {
             return base.EscapeIdentifier(
-                RivenOracleModelBuilderExtenions.GenNewIdentifier(identifier)
+                RivenOracleDbContextModelBuilderExtensions.GenNewIdentifier(identifier)
             );
         }
 

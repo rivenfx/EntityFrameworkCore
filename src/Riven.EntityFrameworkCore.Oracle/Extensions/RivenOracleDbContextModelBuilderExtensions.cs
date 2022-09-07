@@ -6,7 +6,10 @@ using System.Text;
 
 namespace Microsoft.EntityFrameworkCore.Extensions
 {
-    public static class RivenOracleModelBuilderExtenions
+    /// <summary>
+    /// 数据库上下文 ModelBuilder 的扩展类
+    /// </summary>
+    public static class RivenOracleDbContextModelBuilderExtensions
     {
         public static readonly Dictionary<string, string> IdentifierMap = new Dictionary<string, string>();
 
