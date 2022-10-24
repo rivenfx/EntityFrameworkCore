@@ -1,2 +1,4 @@
-# V0.8.15
-- 调整 RivenOracleDesignExtensions 命名空间： Microsoft.EntityFrameworkCore.Extensions -> Microsoft.EntityFrameworkCore
+# V0.8.16
+- 新增 Riven.EntityFrameworkCore.SqlServer 库
+  - 实现 UseIdentityColumns -> UseIdentityColumnsSqlServer
+  - 实现 UseIdentityColumn -> UseIdentityColumnSqlServer

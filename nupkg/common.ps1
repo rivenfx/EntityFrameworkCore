@@ -10,5 +10,6 @@ $projects = (
     "Riven.EntityFrameworkCore",
     "Riven.EntityFrameworkCore.DevartOracle",
     "Riven.EntityFrameworkCore.Oracle",
-    "Riven.EntityFrameworkCore.PostgreSQL"
+    "Riven.EntityFrameworkCore.PostgreSQL",
+    "Riven.EntityFrameworkCore.SqlServer"
 )
