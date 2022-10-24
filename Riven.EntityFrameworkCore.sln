@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3FD84D57-19D7-4E73-B7CB-2B4D35E60103}"
 	ProjectSection(SolutionItems) = preProject
@@ -42,7 +42,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreTestApp", "tests\EFCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Riven.EntityFrameworkCore.DevartOracle", "src\Riven.EntityFrameworkCore.DevartOracle\Riven.EntityFrameworkCore.DevartOracle.csproj", "{992DE888-C41B-4C45-86B3-0F6ACB553925}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore", "src\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj", "{BB7C607E-A1DD-49BF-967E-2B3B594C1900}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Riven.EntityFrameworkCore", "src\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj", "{BB7C607E-A1DD-49BF-967E-2B3B594C1900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riven.EntityFrameworkCore.SqlServer", "src\Riven.EntityFrameworkCore.SqlServer\Riven.EntityFrameworkCore.SqlServer.csproj", "{4D92E54A-FC74-40E0-B43F-B6FF678BD378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +72,10 @@ Global
 		{BB7C607E-A1DD-49BF-967E-2B3B594C1900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB7C607E-A1DD-49BF-967E-2B3B594C1900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB7C607E-A1DD-49BF-967E-2B3B594C1900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D92E54A-FC74-40E0-B43F-B6FF678BD378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D92E54A-FC74-40E0-B43F-B6FF678BD378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D92E54A-FC74-40E0-B43F-B6FF678BD378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D92E54A-FC74-40E0-B43F-B6FF678BD378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{673CDA2E-3341-4C49-95A6-E90B2BDBF80E} = {5A0F5841-B54B-458A-BC31-2E800C2AE972}
 		{992DE888-C41B-4C45-86B3-0F6ACB553925} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 		{BB7C607E-A1DD-49BF-967E-2B3B594C1900} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
+		{4D92E54A-FC74-40E0-B43F-B6FF678BD378} = {58AB7DB8-20CC-4678-80B2-A3F4F3D7C0EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD0B5EDE-AA1C-4E1D-87A8-90BBEACF82ED}

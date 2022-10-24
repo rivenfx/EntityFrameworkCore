@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+	<Import Project="..\..\version.props" />
+	<Import Project="..\..\repository_info.props" />
+
+	<PropertyGroup>
+		<TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard2.1;</TargetFrameworks>
+		<TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
+
+		<RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
+
+		<AssemblyName>Riven.EntityFrameworkCore.SqlServer</AssemblyName>
+		<PackageId>Riven.EntityFrameworkCore.SqlServer</PackageId>
+		<Description>Riven.EntityFrameworkCore.SqlServer</Description>
+		<PackageTags>efcore;ef core;sqlserver;mssql;entity framework core;core;dotnet;NETCoreApp;NETStandard</PackageTags>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Riven.EntityFrameworkCore\Riven.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>
